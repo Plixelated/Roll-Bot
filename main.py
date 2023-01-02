@@ -2,7 +2,6 @@ import os
 import random
 import discord
 from discord import app_commands
-from dice import dice
 from typing import Optional
 from dotenv import load_dotenv
 
