@@ -51,7 +51,7 @@ async def self(
         for i in range(times):
             if status.value == 1:
                 roll1 = random.randint(1,sides)
-                roll2= random.randint(1,sides)
+                roll2 = random.randint(1,sides)
                 if roll1 >= roll2:
                     rollArr.append(f'With Advantage: {roll1}')
                 else:
