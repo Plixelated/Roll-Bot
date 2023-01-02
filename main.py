@@ -51,21 +51,25 @@ async def self(
     if times != None:
         if status.value == 1:
             rolls = die.roll_multi_adv(times)
+            await interaction.response.send_message(f'With Advantage You rolled: {rolls}')
         elif status.value == 2:
             rolls = die.roll_multi_dis(times)
+            await interaction.response.send_message(f'With Disadvantage You rolled: {rolls}')
         else:
             rolls = die.roll_multi(times)
-            
-        await interaction.response.send_message(f'You rolled: {rolls}')
+            await interaction.response.send_message(f'You rolled: {rolls}')
     else:
         if status.value == 1:
             roll = die.roll_adv()
+            await interaction.response.send_message(f'With Advantage You rolled: {roll}')
         elif status.value == 2:
             roll = die.roll_dis()
+            await interaction.response.send_message(f'With Disadvantage You rolled: {roll}')
         else:
             roll = die.roll()
+            await interaction.response.send_message(f'You rolled: {roll}')
 
-        await interaction.response.send_message(f'You rolled: {roll}')
+        
 
 
 

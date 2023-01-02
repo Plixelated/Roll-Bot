@@ -9,24 +9,22 @@ class dice():
         return random.randint(1,self.__sides)
 
     def roll_adv(self):
-        roll1 = random.randint(1,self.__sides)
-        roll2 = random.randint(1,self.__sides)
-        if roll1 >= roll2:
-            print(f'{roll1},{roll2}')
-            return roll1
+        rolls = []
+        rolls.append(random.randint(1,self.__sides))
+        rolls.append(random.randint(1,self.__sides))
+        if rolls[0] >= rolls[1]:
+            return f'{rolls}: {rolls[0]}'
         else:
-            print(f'{roll1},{roll2}')
-            return roll2
+            return f'{rolls}: {rolls[1]}'
 
     def roll_dis(self):
-        roll1 = random.randint(1,self.__sides)
-        roll2 = random.randint(1,self.__sides)
-        if roll1 <= roll2:
-            print(f'{roll1},{roll2}')
-            return roll1
+        rolls = []
+        rolls.append(random.randint(1,self.__sides))
+        rolls.append(random.randint(1,self.__sides))
+        if rolls[0] <= rolls[1]:
+            return f'{rolls}: {rolls[0]}'
         else:
-            print(f'{roll1},{roll2}')
-            return roll2
+            return f'{rolls}: {rolls[1]}'
     
     def roll_multi(self, times):
         rollArr = []
