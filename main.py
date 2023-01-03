@@ -49,39 +49,41 @@ async def self(
     if times != None:
         rollArr = []
         for i in range(times):
-            if status.value == 1:
-                roll1 = random.randint(1,sides)
-                roll2= random.randint(1,sides)
-                if roll1 >= roll2:
-                    rollArr.append(f'With Advantage: {roll1}')
-                else:
-                    rollArr.append(f'With Advantage: {roll2}')
-            elif status.value == 2:
-                roll1 = random.randint(1,sides)
-                roll2 = random.randint(1,sides)
-                if roll1 <= roll2:
-                    rollArr.append(f'With Disadvantage: {roll1}')
-                else:
-                    rollArr.append(f'With Disadvantage: {roll2}')
+            if status:
+                if status.value == 1:
+                    roll1 = random.randint(1,sides)
+                    roll2= random.randint(1,sides)
+                    if roll1 >= roll2:
+                        rollArr.append(f'With Advantage: {roll1}')
+                    else:
+                        rollArr.append(f'With Advantage: {roll2}')
+                elif status.value == 2:
+                    roll1 = random.randint(1,sides)
+                    roll2 = random.randint(1,sides)
+                    if roll1 <= roll2:
+                        rollArr.append(f'With Disadvantage: {roll1}')
+                    else:
+                        rollArr.append(f'With Disadvantage: {roll2}')
             else:
                 rollArr.append(random.randint(1,sides))
         
         await interaction.response.send_message(f'You rolled: {rollArr}')
     else:
-        if status.value == 1:
-            roll1 = random.randint(1,sides)
-            roll2= random.randint(1,sides)
-            if roll1 >= roll2:
-                await interaction.response.send_message(f'You rolled w/ advantage: {roll1}')
-            else:
-                await interaction.response.send_message(f'You rolled w/ advantage: {roll2}')
-        elif status.value == 2:
-            roll1 = random.randint(1,sides)
-            roll2 = random.randint(1,sides)
-            if roll1 <= roll2:
-                await interaction.response.send_message(f'You rolled w/ disadvantage: {roll1}')
-            else:
-                await interaction.response.send_message(f'You rolled w/ disadvantage: {roll2}')
+        if status:
+            if status.value == 1:
+                roll1 = random.randint(1,sides)
+                roll2= random.randint(1,sides)
+                if roll1 >= roll2:
+                    await interaction.response.send_message(f'You rolled w/ advantage: {roll1}')
+                else:
+                    await interaction.response.send_message(f'You rolled w/ advantage: {roll2}')
+            elif status.value == 2:
+                roll1 = random.randint(1,sides)
+                roll2 = random.randint(1,sides)
+                if roll1 <= roll2:
+                    await interaction.response.send_message(f'You rolled w/ disadvantage: {roll1}')
+                else:
+                    await interaction.response.send_message(f'You rolled w/ disadvantage: {roll2}')
         else:
             await interaction.response.send_message(f'You rolled: {random.randint(1,sides)}')
 
