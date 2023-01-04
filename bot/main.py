@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from dice import dice
 
 load_dotenv()
-token = os.getenv("token")
-server = os.getenv("serverID")
+token = os.getenv("DISCORD_TOKEN")
+#server = os.getenv("serverID")
 
 class aclient(discord.Client):
     def __init__(self):
@@ -17,7 +17,7 @@ class aclient(discord.Client):
     async def on_ready(self):
         await self.wait_until_ready()
         if not self.synced:
-            await tree.sync(guild = discord.Object(id = server))
+            await tree.sync()
             self.synced = True
         print(f'{self.user} has logged in')
 
@@ -27,7 +27,6 @@ tree = app_commands.CommandTree(client)
 @tree.command(
     name="roll", 
     description="Roll a dice", 
-    guild = discord.Object(id = server)
 )
 @app_commands.describe(
     sides="How many sides?",
@@ -74,5 +73,5 @@ async def self(
         
 
 
-
-client.run(token)
+if __name__ == '__main__':
+    client.run(token)
