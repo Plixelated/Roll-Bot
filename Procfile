@@ -1,0 +1,1 @@
+worker: python3 /Users/jordan/Programming/Bots/Roll-Bot/
