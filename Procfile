@@ -1,1 +1,1 @@
-worker: python3 /Users/jordan/Programming/Bots/Roll-Bot/
+worker: python3 main.py
