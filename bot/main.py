@@ -2,7 +2,7 @@ import os
 import discord
 from discord import app_commands
 from typing import Optional
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from dice import dice
 
 #load_dotenv()
