@@ -5,7 +5,7 @@ from typing import Optional
 from dotenv import load_dotenv
 from dice import dice
 
-load_dotenv()
+#load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 #server = os.getenv("serverID")
 
