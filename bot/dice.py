@@ -12,19 +12,13 @@ class dice():
         rolls = []
         rolls.append(random.randint(1,self.__sides))
         rolls.append(random.randint(1,self.__sides))
-        if rolls[0] >= rolls[1]:
-            return f'{rolls}: {rolls[0]}'
-        else:
-            return f'{rolls}: {rolls[1]}'
+        return rolls
 
     def roll_dis(self):
         rolls = []
         rolls.append(random.randint(1,self.__sides))
         rolls.append(random.randint(1,self.__sides))
-        if rolls[0] <= rolls[1]:
-            return f'{rolls}: {rolls[0]}'
-        else:
-            return f'{rolls}: {rolls[1]}'
+        return rolls
     
     def roll_multi(self, times):
         rollArr = []
@@ -43,3 +37,15 @@ class dice():
         for i in range(times):
             rollArr.append(self.roll_dis())
         return rollArr
+    
+    def get_multi_adv_total(self, rolls):
+        total = []
+        for set in rolls:
+            total.append(max(set))
+        return sum(total)
+    
+    def get_multi_dis_total(self, rolls):
+        total = []
+        for set in rolls:
+            total.append(min(set))
+        return sum(total)   
